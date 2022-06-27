@@ -7,10 +7,14 @@ Feature: Logging In
     When I press the login button
     Then An error should appear
 
-  Scenario: Submitting a partially complete login form
-    Given I input a username
+  Scenario Outline: Submitting a partially complete login form
+    Given I input a "<username>"
     When I press the login button
     Then An error should appear
+
+    Examples:
+      | username      |
+      | standard_user |
 
   Scenario Outline: Logging in with incorrect username
     Given I input a "<username>"
