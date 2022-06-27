@@ -10,7 +10,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Hooks {
 
+    private final SharedDictionary sharedDict;
     private WebDriver driver;
+    private String baseUrl = "https://www.saucedemo.com/";
+
+    public Hooks(SharedDictionary sharedDict) {
+
+        this.sharedDict = sharedDict;
+    }
+
     @Before
     public void setUp() {
 
@@ -39,7 +47,9 @@ public class Hooks {
                 break;
         }
 
+        sharedDict.add("driver", driver);
         driver.manage().window().maximize();
+        driver.get(baseUrl);
     }
 
     @After
