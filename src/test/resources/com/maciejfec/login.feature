@@ -8,7 +8,7 @@ Feature: Logging In
     Then An error should appear
 
   Scenario Outline: Submitting a partially complete login form
-    Given I input a "<username>"
+    Given I input username "<username>"
     When I press the login button
     Then An error should appear
 
@@ -17,8 +17,8 @@ Feature: Logging In
       | standard_user |
 
   Scenario Outline: Logging in with incorrect username
-    Given I input a "<username>"
-    And I input a "<password>"
+    Given I input username "<username>"
+    And I input password "<password>"
     When I press the login button
     Then An error should appear
 
@@ -27,8 +27,8 @@ Feature: Logging In
       | fake_user | secret_sauce |
 
   Scenario Outline: Logging in with incorrect password
-    Given I input a "<username>"
-    And I input a "<password>"
+    Given I input username "<username>"
+    And I input password "<password>"
     When I press the login button
     Then An error should appear
 
@@ -37,8 +37,8 @@ Feature: Logging In
       | standard_user | fake_password |
 
   Scenario Outline: Logging in with correct details
-    Given I input a "<username>"
-    And I input a "<password>"
+    Given I input username "<username>"
+    And I input password "<password>"
     When I press the login button
     Then I should be on the products page
 
