@@ -24,6 +24,9 @@ public class LoginPOM {
     @FindBy(id = "login-button")
     private WebElement loginBtn;
 
+    @FindBy(css = "h3[data-test='error']")
+    private WebElement loginError;
+
     public void inputUsername(String username) {
 
         usernameField.sendKeys(username);
@@ -44,5 +47,15 @@ public class LoginPOM {
         inputUsername(username);
         inputPassword(password);
         clickLoginBtn();
+    }
+
+    public String getLoginBtnText() {
+
+        return loginBtn.getAttribute("value");
+    }
+
+    public WebElement getLoginError() {
+
+        return loginError;
     }
 }
